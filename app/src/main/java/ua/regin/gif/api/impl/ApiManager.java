@@ -1,22 +1,27 @@
 package ua.regin.gif.api.impl;
 
 import android.content.Context;
-import android.provider.SyncStateContract;
-import android.util.Base64;
 
+import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
+import com.squareup.okhttp.logging.HttpLoggingInterceptor;
 
 import org.androidannotations.annotations.EBean;
 
-import java.nio.charset.Charset;
+import java.io.IOException;
 
+import retrofit.GsonConverterFactory;
 import retrofit.Retrofit;
+import retrofit.RxJavaCallAdapterFactory;
 import ua.regin.gif.api.IApiManager;
 
 @EBean(scope = EBean.Scope.Singleton)
-public class ApiManager implements IApiManager{
+public class ApiManager implements IApiManager {
 
-    private static final String BASE_URL = "https://giphy.p.mashape.com/v1/";
+    private static final String BASE_URL = "https://giphy.p.mashape.com";
+    public static final String API_KEY = "dc6zaTOxFJmzC";
 
     private final Context context;
     private final Retrofit retrofit;
@@ -24,12 +29,29 @@ public class ApiManager implements IApiManager{
     public ApiManager(Context context) {
         this.context = context;
 
+        OkHttpClient httpClient = new OkHttpClient();
+        httpClient.networkInterceptors().add(chain -> {
+            Request request = chain.request().newBuilder()
+                    .addHeader("X-Mashape-Key", "nTQdJ01qrAmshzEei35gOKrjD31Wp1sjEJojsnOEJs8rOffcbR")
+                    .addHeader("Accept", "application/json")
+                    .build();
+            return chain.proceed(request);
+        });
+
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+        httpClient.interceptors().add(interceptor);
+
         retrofit = new Retrofit.Builder()
-                .client(new OkHttpClient())
-                .baseUrl(BASE_URL).build();
+                .client(httpClient)
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .baseUrl(BASE_URL)
+                .build();
     }
 
-    public Retrofit getRestAdapter() {
+    public Retrofit getRetrofitAdapter() {
         return retrofit;
     }
 }

@@ -4,6 +4,6 @@ import retrofit.Retrofit;
 
 public interface IApiManager {
 
-    Retrofit getRestAdapter();
+    Retrofit getRetrofitAdapter();
 
 }
