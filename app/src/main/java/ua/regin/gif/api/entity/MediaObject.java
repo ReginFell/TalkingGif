@@ -1,15 +1,22 @@
 package ua.regin.gif.api.entity;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+
 public class MediaObject {
-    private Data data;
+
+    @SerializedName("data")
+    private List<Data> dataList;
+
     private Meta meta;
 
-    public Data getData() {
-        return data;
+    public List<Data> getDataList() {
+        return dataList;
     }
 
-    public void setData(Data data) {
-        this.data = data;
+    public void setDataList(List<Data> dataList) {
+        this.dataList = dataList;
     }
 
     public Meta getMeta() {

@@ -6,7 +6,6 @@ import com.trello.rxlifecycle.components.support.RxFragment;
 
 import org.androidannotations.annotations.EFragment;
 
-@EFragment
 public class BaseFragment extends RxFragment {
 
     public Context getContext() {

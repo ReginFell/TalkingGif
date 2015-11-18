@@ -6,7 +6,6 @@ import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 
 import org.androidannotations.annotations.EActivity;
 
-@EActivity
 public abstract class BaseActivity extends RxAppCompatActivity {
 
     public Context getContext() {

@@ -8,6 +8,7 @@ public class Data {
     private String type;
     private String id;
     private String url;
+    private Images images;
 
     @SerializedName("image_url")
     private String imageUrl;
@@ -38,6 +39,14 @@ public class Data {
 
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    public Images getImages() {
+        return images;
+    }
+
+    public void setImages(Images images) {
+        this.images = images;
     }
 
     public void setImageUrl(String imageUrl) {
