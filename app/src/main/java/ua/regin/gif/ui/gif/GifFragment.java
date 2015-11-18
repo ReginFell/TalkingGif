@@ -18,7 +18,7 @@ import ua.regin.gif.ui.BaseFragment;
 import ua.regin.gif.ui.gif.adapter.GifAdapter;
 
 @EFragment(R.layout.fragment_gif)
-public class GifFragment extends BaseFragment{
+public class GifFragment extends BaseFragment {
 
     @FragmentArg
     protected String search;
@@ -45,6 +45,7 @@ public class GifFragment extends BaseFragment{
         layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
+                //return position == 0 ? layoutManager.getSpanCount() : 1;\
                 if (adapter.getFocusedState(position)) {
                     return 3;
                 } else {

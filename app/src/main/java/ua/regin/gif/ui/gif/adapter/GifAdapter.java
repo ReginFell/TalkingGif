@@ -52,6 +52,7 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.ViewHolder> {
         holder.setMultimediaData(multimediaData);
 
         holder.setOnClickListener(() -> {
+            notifyItemChanged(position);
             disableFocusAll();
             multimediaData.isFocused = true;
         });
