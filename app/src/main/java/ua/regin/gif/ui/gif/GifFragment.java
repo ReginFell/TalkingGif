@@ -18,7 +18,7 @@ import ua.regin.gif.ui.BaseFragment;
 import ua.regin.gif.ui.gif.adapter.GifAdapter;
 
 @EFragment(R.layout.fragment_gif)
-public class GifFragment extends BaseFragment {
+public class GifFragment extends BaseFragment{
 
     @FragmentArg
     protected String search;
@@ -29,27 +29,32 @@ public class GifFragment extends BaseFragment {
     @ViewById
     protected RecyclerView recyclerView;
 
-    private GifAdapter gifAdapter;
+    private GifAdapter adapter;
+    private GridLayoutManager layoutManager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        gifAdapter = new GifAdapter(getContext());
+        adapter = new GifAdapter(getContext());
     }
 
     @AfterViews
     protected void afterViews() {
-        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 3);
+        layoutManager = new GridLayoutManager(getContext(), 3);
 
         layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
-                return position == 0 ? layoutManager.getSpanCount() : 1;
+                if (adapter.getFocusedState(position)) {
+                    return 3;
+                } else {
+                    return 1;
+                }
             }
         });
 
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(gifAdapter);
+        recyclerView.setAdapter(adapter);
 
         if (search == null) {
             gifManager.loadTrendingGifList().compose(bindToLifecycle()).subscribe(this::updateData);
@@ -59,6 +64,7 @@ public class GifFragment extends BaseFragment {
     }
 
     private void updateData(MediaObject mediaObject) {
-        gifAdapter.setDataList(mediaObject.getDataList());
+        adapter.setDataList(mediaObject.getDataList());
     }
+
 }
