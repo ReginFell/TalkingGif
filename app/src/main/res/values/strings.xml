@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">TalkingGif</string>
+    <string name="app_name">Talking Gif</string>
+    <string name="trending">Trending</string>
+    <string name="cats">Cats</string>
+    <string name="funny">Funny</string>
+
+    <!-- Main Menu -->
+    <string name="action_search">Search</string>
+
+    <!-- Drawer -->
+    <string name="drawer_gif">Gifs</string>
+    <string name="drawer_sticker">Stickers</string>
+
 </resources>

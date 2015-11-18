@@ -10,4 +10,6 @@ public interface IGifManager {
     Observable<MediaObject> loadRandomGif();
 
     Observable<MediaObject> loadTrendingGifList();
+
+    Observable<MediaObject> searchGifs(String search);
 }

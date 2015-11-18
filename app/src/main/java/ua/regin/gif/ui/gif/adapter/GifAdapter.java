@@ -1,4 +1,4 @@
-package ua.regin.gif.ui.main.adapter;
+package ua.regin.gif.ui.gif.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -6,15 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 
 import com.annimon.stream.Collectors;
 import com.annimon.stream.Stream;
 import com.bumptech.glide.DrawableTypeRequest;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,9 +52,9 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.ViewHolder> {
         DrawableTypeRequest request = Glide.with(context).load(multimediaData.data.getImages().getDownsized().getUrl());
 
         if (multimediaData.isPlaying) {
-            request.asGif().centerCrop().into(holder.gifView);
+            request.asGif().centerCrop().diskCacheStrategy(DiskCacheStrategy.NONE).into(holder.gifView);
         } else {
-            request.asBitmap().centerCrop().into(holder.gifView);
+            request.asBitmap().centerCrop().diskCacheStrategy(DiskCacheStrategy.NONE).into(holder.gifView);
         }
     }
 
@@ -73,7 +70,6 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private ImageView gifView;
-        private ProgressBar progressBar;
         private OnClickListener onClickListener;
         private MultimediaData multimediaData;
         private int position;
@@ -81,7 +77,6 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.ViewHolder> {
         public ViewHolder(View itemView) {
             super(itemView);
             gifView = (ImageView) itemView.findViewById(R.id.gifImage);
-            progressBar = (ProgressBar) itemView.findViewById(R.id.progressBar);
             itemView.setOnClickListener(this);
         }
 
