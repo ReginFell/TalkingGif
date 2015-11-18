@@ -7,11 +7,14 @@ public class Images {
     @SerializedName("fixed_height")
     private Image fixedHeight;
 
-    public Image getFixedHeight() {
-        return fixedHeight;
+    @SerializedName("downsized")
+    private Image downsized;
+
+    public Image getDownsized() {
+        return downsized;
     }
 
-    public void setFixedHeight(Image fixedHeight) {
-        this.fixedHeight = fixedHeight;
+    public Image getFixedHeight() {
+        return fixedHeight;
     }
 }
