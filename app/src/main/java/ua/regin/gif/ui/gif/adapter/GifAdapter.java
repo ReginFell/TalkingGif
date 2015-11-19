@@ -101,7 +101,8 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.ViewHolder> {
 
         @Override
         public void onClick(View v) {
-            multimediaData.isPlaying = !multimediaData.isPlaying;
+            if (!multimediaData.isPlaying)
+                multimediaData.isPlaying = true;
             onClickListener.onClick();
         }
     }
