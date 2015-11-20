@@ -1,4 +1,10 @@
 <resources>
+
+    <!-- Fragment titles -->
+    <string name="fragment_gif_title">Gifs</string>
+    <string name="fragment_sticker_title">Stickers</string>
+    <string name="fragment_settings_title">Settings</string>
+
     <string name="app_name">Talking Gif</string>
     <string name="trending">Trending</string>
     <string name="cats">Cats</string>

@@ -41,11 +41,9 @@ public class GifFragment extends BaseFragment {
     @AfterViews
     protected void afterViews() {
         layoutManager = new GridLayoutManager(getContext(), 3);
-
         layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
-                //return position == 0 ? layoutManager.getSpanCount() : 1;\
                 if (adapter.getFocusedState(position)) {
                     return 3;
                 } else {
@@ -67,5 +65,4 @@ public class GifFragment extends BaseFragment {
     private void updateData(MediaObject mediaObject) {
         adapter.setDataList(mediaObject.getDataList());
     }
-
 }

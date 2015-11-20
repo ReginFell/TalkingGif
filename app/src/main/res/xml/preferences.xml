@@ -1,10 +1,28 @@
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:summary="SUMMARY TEST"
-    android:title="TITLE TEST">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <intent
-        android:action="android.intent.action.VIEW"
-        android:data="http://developer.android.com" />
+    <PreferenceCategory android:title="TEST TEST">
 
+        <PreferenceScreen
+            android:key="screen_preference"
+            android:summary="asfasf"
+            android:title="asfasf">
+
+            <CheckBoxPreference
+                android:key="next_screen_checkbox_preference"
+                android:summary="v"
+                android:title="v" />
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            android:key="screen_preference"
+            android:summary="asfasf"
+            android:title="asfasf">
+
+            <CheckBoxPreference
+                android:key="next_screen_checkbox_preference"
+                android:summary="v"
+                android:title="v" />
+        </PreferenceScreen>
+
+    </PreferenceCategory>
 </PreferenceScreen>
