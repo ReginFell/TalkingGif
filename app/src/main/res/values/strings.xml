@@ -10,5 +10,6 @@
     <!-- Drawer -->
     <string name="drawer_gif">Gifs</string>
     <string name="drawer_sticker">Stickers</string>
+    <string name="drawer_settings">Settings</string>
 
 </resources>

@@ -1,0 +1,10 @@
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:summary="SUMMARY TEST"
+    android:title="TITLE TEST">
+
+    <intent
+        android:action="android.intent.action.VIEW"
+        android:data="http://developer.android.com" />
+
+</PreferenceScreen>
