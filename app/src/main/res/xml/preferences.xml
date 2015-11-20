@@ -1,28 +1,28 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="TEST TEST">
+    <PreferenceCategory android:title="Commons">
 
-        <PreferenceScreen
-            android:key="screen_preference"
-            android:summary="asfasf"
-            android:title="asfasf">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="setting_autoplay"
+            android:summary="Automatically play gif when it loaded"
+            android:title="Autoplay" />
 
-            <CheckBoxPreference
-                android:key="next_screen_checkbox_preference"
-                android:summary="v"
-                android:title="v" />
-        </PreferenceScreen>
-
-        <PreferenceScreen
-            android:key="screen_preference"
-            android:summary="asfasf"
-            android:title="asfasf">
-
-            <CheckBoxPreference
-                android:key="next_screen_checkbox_preference"
-                android:summary="v"
-                android:title="v" />
-        </PreferenceScreen>
-
+        <ListPreference
+            android:entries="@array/gif_column_count"
+            android:entryValues="@array/gif_column_count"
+            android:key="list_preference"
+            android:summary="asfas"
+            android:title="TESST" />
     </PreferenceCategory>
+
+    <PreferenceCategory android:title="Notifications">
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="setting_push"
+            android:summary="Allow application to send push notifications"
+            android:title="Push notifications" />
+    </PreferenceCategory>
+
 </PreferenceScreen>

@@ -40,7 +40,7 @@ dependencies {
     //Android annotation
     compile "org.androidannotations:androidannotations-api:3.3.2"
     compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.android.support:preference-v7:23.1.1'
+    compile 'com.android.support:preference-v14:23.1.0'
 
     //RxAndroid
     compile 'io.reactivex:rxandroid:1.0.1'
@@ -74,7 +74,6 @@ dependencies {
 
     //Smooth ProgressBar
     compile 'com.github.castorflex.smoothprogressbar:library-circular:1.2.0'
-
 
     //Desging library
     compile 'com.android.support:design:23.1.1'
