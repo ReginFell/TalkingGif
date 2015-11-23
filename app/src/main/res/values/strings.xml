@@ -20,4 +20,7 @@
 
     <string name="settings_common_title">Commons</string>
 
+    <!-- Settings -->
+    <string name="key_autoplay">key_autoplay</string>
+
 </resources>

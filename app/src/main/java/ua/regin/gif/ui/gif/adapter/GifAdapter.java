@@ -23,10 +23,20 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.ViewHolder> {
 
     private final Context context;
     private List<MultimediaData> multimediaDataList;
+    private boolean autoplay;
 
     public GifAdapter(Context context) {
         this.context = context;
         multimediaDataList = new ArrayList<>();
+    }
+
+    public GifAdapter(Context context, boolean autoplay) {
+        this(context);
+        this.autoplay = autoplay;
+    }
+
+    public void setAutoplay(boolean autoplay) {
+        this.autoplay = autoplay;
     }
 
     public void setDataList(List<Data> dataList) {
@@ -59,7 +69,7 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.ViewHolder> {
 
         DrawableTypeRequest request = Glide.with(context).load(multimediaData.data.getImages().getDownsized().getUrl());
 
-        if (multimediaData.isPlaying) {
+        if (autoplay || multimediaData.isPlaying) {
             request.asGif().centerCrop().diskCacheStrategy(DiskCacheStrategy.NONE).into(holder.gifView);
         } else {
             request.asBitmap().centerCrop().diskCacheStrategy(DiskCacheStrategy.NONE).into(holder.gifView);
